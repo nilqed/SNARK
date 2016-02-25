@@ -1,0 +1,95 @@
+=====
+SNARK
+=====
+
+SNARK, SRI's New Automated Reasoning Kit, is a theorem prover intended for 
+applications in artificial intelligence and software engineering. SNARK is 
+geared toward dealing with large sets of assertions; it can be specialized 
+with strategic controls that tune its performance; and it has facilities 
+for integrating special-purpose reasoning procedures with general-purpose 
+inference.
+
+
+--------
+Overview
+--------
+
+SNARK is an automated theorem-proving program being developed in Common Lisp. 
+Its principal inference rules are resolution and paramodulation. SNARK's style 
+of theorem proving is similar to Otter's. 
+
+Some distinctive features of SNARK are its support for special unification 
+algorithms, sorts, answer construction for program synthesis, procedural 
+attachment, and extensibility by Lisp code. 
+
+SNARK has been used as the reasoning component of SRI's High Performance 
+Knowledge Base (HPKB) system, which deduces answers to questions based on 
+large repositories of information, and as the deductive core of NASA's Amphion 
+system, which composes software from components to meet users' specifications,
+e.g., to perform computations in planetary astronomy. SNARK has also been 
+connected to Kestrel's SPECWARE environment for software development. 
+
+
+Selected Publications
+
+Stickel, M., R. Waldinger, M. Lowry, T. Pressburger, and I. Underwood. 
+Deductive composition of astronomical software from subroutine libraries. 
+Proceedings of the Twelfth International Conference on Automated Deduction 
+(CADE-12), Nancy, France, June 1994, 341-355. 
+
+
+---------------------
+Links & Documentation
+---------------------
+
+SNARK tutorial ... http://www.ai.sri.com/snark/tutorial/tutorial.html
+SNARK paper ...... http://www.sri.com/work/publications/guide-snark
+SNARK home ....... http://www.ai.sri.com/~stickel/snark.html
+SNARK author ..... https://en.wikipedia.org/wiki/Mark_E._Stickel
+
+
+----------------
+Obtaining SNARK:
+----------------
+
+  SNARK can be downloaded from the SNARK web page
+  http://www.ai.sri.com/~stickel/snark.html
+
+See INSTALL file for installation instructions
+
+Running SNARK:
+
+  lisp
+  (load "snark-system.lisp")
+  (make-snark-system)
+  :
+
+Examples:
+
+  (overbeek-test) in overbeek-test.lisp
+    some standard theorem-proving examples, some time-consuming
+
+  (steamroller-example) in steamroller-example.lisp
+    illustrates sorts
+
+  (front-last-example) in front-last-example.lisp
+    illustrates program synthesis
+
+  (reverse-example) in reverse-example.lisp
+    illustrates logic programming style usage
+
+A guide to SNARK has been written:
+
+  http://www.ai.sri.com/snark/tutorial/tutorial.html
+
+but has not been updated yet to reflect changes in SNARK,
+especially for temporal and spatial reasoning.
+
+-----
+NOTES
+-----
+This repository is based on the latest version 20120808-r022 from the 
+download site and the '.asd' files from https://github.com/hoelzl/Snark.
+The goal is to get SNARK installable by QuickLisp.
+
+

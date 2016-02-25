@@ -1,0 +1,92 @@
+(in-package :common-lisp-user)
+
+(asdf:defsystem #:snark-implementation
+  :serial t
+  :description "The Snark Theorem Prover"
+  :version "20120808r022"
+  :author "Mark E. Stickel, SRI International"
+  :license "MPL 1.1, see file LICENSE"
+  :depends-on (#:snark-auxiliary-packages
+	       #:snark-lisp
+	       #:snark-sparse-array
+	       #:snark-numbering
+	       #:snark-deque
+	       #:snark-agenda
+	       #:snark-dpll
+	       #:snark-feature
+	       #:snark-infix-reader
+	       #:snark-pkg)
+  :pathname "src/"
+  :components ((:file "useful")
+	       (:file "posets")
+	       (:file "solve-sum")
+	       (:file "globals")
+	       (:file "options")
+	       (:file "terms2")
+	       (:file "rows")
+	       (:file "row-contexts")
+	       (:file "constants")
+	       (:file "functions")
+	       (:file "variables")
+	       (:file "subst")
+	       (:file "substitute")
+	       (:file "symbol-table2")
+	       (:file "symbol-definitions")
+	       (:file "assertion-analysis")
+	       (:file "jepd-relations-tables")
+	       (:file "jepd-relations")
+	       (:file "date-reasoning2")
+	       (:file "constraints")
+	       (:file "constraint-purify")
+	       (:file "connectives")
+	       (:file "wffs")
+	       ;; (:file "equality-elimination2")
+	       (:file "nonhorn-magic-set")
+	       (:file "dp-refute")
+	       (:file "sorts-functions")
+	       (:file "sorts-interface")
+	       (:file "sorts")
+	       (:file "argument-bag-ac")
+	       (:file "argument-list-a1")
+	       (:file "unify")
+	       (:file "unify-bag")
+	       (:file "subsume-bag")
+	       (:file "unify-vector")
+	       (:file "equal")
+	       (:file "variant")
+	       (:file "alists")
+	       (:file "term-hash")
+	       (:file "trie-index")
+	       (:file "path-index")
+	       (:file "trie")
+	       (:file "feature-vector")
+	       (:file "feature-vector-trie")
+	       (:file "feature-vector-index")
+	       (:file "term-memory")
+	       ;; (:file "instance-graph" "instance-graph2")
+	       (:file "weight")
+	       (:file "eval")
+	       (:file "input")
+	       (:file "output")
+	       (:file "simplification-ordering")
+	       (:file "symbol-ordering")
+	       (:file "multiset-ordering")
+	       (:file "recursive-path-ordering")
+	       (:file "ac-rpo")
+	       (:file "knuth-bendix-ordering2")
+	       (:file "rewrite")
+	       (:file "rewrite-code")
+	       (:file "code-for-strings2")
+	       (:file "code-for-numbers3")
+	       (:file "code-for-lists2")
+	       (:file "code-for-bags4")
+	       (:file "resolve-code")
+	       (:file "resolve-code-tables")
+	       (:file "main")
+	       (:file "subsume")
+	       (:file "subsume-clause")
+	       (:file "interactive")
+	       (:file "assertion-file")
+	       (:file "tptp")
+	       (:file "tptp-symbols")
+	       (:file "coder")))
