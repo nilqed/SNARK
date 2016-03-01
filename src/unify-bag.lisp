@@ -412,12 +412,22 @@
 ;;              (format t "~%" ) (dotimes (i nxcoefs) (format t "~4d" (svref xsol i)))
 ;;              (format t "   ") (dotimes (j nycoefs) (format t "~4d" (svref ysol j)))
 		(cond
-		  ((and
-		     (loop for i from (+ 1 (loop for k below nxcoefs when (plusp (svref xsol k)) return k)) below nxcoefs
+	      ((and
+		     (loop for i from (+ 1 (loop for k below nxcoefs when (plusp (svref xsol k)) return k finally (error "Loop should have terminated"))) below nxcoefs
 			   never (plusp (svref xsol i)))	;returns t if xsol has only one nonzero value
-		     (loop for j from (+ 1 (loop for k below nycoefs when (plusp (svref ysol k)) return k)) below nycoefs
+		     (loop for j from (+ 1 (loop for k below nycoefs when (plusp (svref ysol k)) return k finally (error "Loop should have terminated"))) below nycoefs
 			   never (plusp (svref ysol j))))	;returns t if ysol has only one nonzero value
-		   )
+		   )		    
+		   
+		  ;;; fix SBCL's type inferencer is flagging an operation with a fatal warning:
+		  ;;; The fatal part is "Constant NIL conflicts with its asserted type NUMBER".
+		  ;((and
+		  ;   (loop for i from (+ 1 (loop for k below nxcoefs when (plusp (svref xsol k)) return k)) below nxcoefs
+		  ;	   never (plusp (svref xsol i)))	;returns t if xsol has only one nonzero value
+		  ;   (loop for j from (+ 1 (loop for k below nycoefs when (plusp (svref ysol k)) return k)) below nycoefs
+		  ;	   never (plusp (svref ysol j))))	;returns t if ysol has only one nonzero value
+		  ; )
+		  
 		  ((loop for v in complex-solutions	;returns t if new solution is greater than previous one
 			 thereis (and
 				   (loop with xsol1 = (car v)
