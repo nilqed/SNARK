@@ -52,6 +52,13 @@ SNARK author ..... https://en.wikipedia.org/wiki/Mark_E._Stickel
 Obtaining SNARK:
 ----------------
 
+  New (18-MAR-2016): get it by QuickLisp
+
+     (ql:quickload :snark)
+
+
+  Or:
+
   SNARK can be downloaded from the SNARK web page
   http://www.ai.sri.com/~stickel/snark.html
 
@@ -92,4 +99,22 @@ This repository is based on the latest version 20120808-r022 from the
 download site and the '.asd' files from https://github.com/hoelzl/Snark.
 The goal is to get SNARK installable by QuickLisp.
 
+Loadable by quicklisp since: 18-MAR-2016
+
+* (ql:system-apropos :snark)
+#<SYSTEM snark / snark-20160318-git / quicklisp 2016-03-18>
+#<SYSTEM snark-agenda / snark-20160318-git / quicklisp 2016-03-18>
+#<SYSTEM snark-auxiliary-packages / snark-20160318-git / quicklisp 2016-03-18>
+#<SYSTEM snark-deque / snark-20160318-git / quicklisp 2016-03-18>
+#<SYSTEM snark-dpll / snark-20160318-git / quicklisp 2016-03-18>
+#<SYSTEM snark-examples / snark-20160318-git / quicklisp 2016-03-18>
+#<SYSTEM snark-feature / snark-20160318-git / quicklisp 2016-03-18>
+#<SYSTEM snark-implementation / snark-20160318-git / quicklisp 2016-03-18>
+#<SYSTEM snark-infix-reader / snark-20160318-git / quicklisp 2016-03-18>
+#<SYSTEM snark-lisp / snark-20160318-git / quicklisp 2016-03-18>
+#<SYSTEM snark-loads / snark-20160318-git / quicklisp 2016-03-18>
+#<SYSTEM snark-numbering / snark-20160318-git / quicklisp 2016-03-18>
+#<SYSTEM snark-pkg / snark-20160318-git / quicklisp 2016-03-18>
+#<SYSTEM snark-sparse-array / snark-20160318-git / quicklisp 2016-03-18>
+*
 
