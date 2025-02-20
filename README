@@ -1,3 +1,5 @@
+Update 20-FEB-2025 -- replaced some SRI links (not available anymore)
+
 =====
 SNARK
 =====
@@ -42,9 +44,9 @@ Proceedings of the Twelfth International Conference on Automated Deduction
 Links & Documentation
 ---------------------
 
-SNARK tutorial ... http://www.ai.sri.com/snark/tutorial/tutorial.html
-SNARK paper ...... http://www.sri.com/work/publications/guide-snark
-SNARK home ....... http://www.ai.sri.com/~stickel/snark.html
+SNARK tutorial ... https://nilqed.github.io/SNARK/tutorial/tutorial.html
+SNARK paper ...... https://www.sri.com/work/publications/guide-snark
+SNARK home ....... https://www.ai.sri.com/~stickel/snark.html
 SNARK author ..... https://en.wikipedia.org/wiki/Mark_E._Stickel
 
 
@@ -87,7 +89,7 @@ Examples:
 
 A guide to SNARK has been written:
 
-  http://www.ai.sri.com/snark/tutorial/tutorial.html
+  https://nilqed.github.io/SNARK/tutorial/tutorial.html
 
 but has not been updated yet to reflect changes in SNARK,
 especially for temporal and spatial reasoning.
