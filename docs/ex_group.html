@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ex_group.lisp</title>
+<meta name="Generator" content="SciTE - www.Scintilla.org" />
+<style type="text/css">
+.S0 {
+	color: #808080;
+	font-size: 10pt;
+}
+.S1 {
+	font-family: 'DejaVu Sans Mono';
+	color: #007F00;
+	font-size: 9pt;
+}
+.S2 {
+	color: #007F7F;
+	font-size: 10pt;
+}
+.S3 {
+	font-weight: bold;
+	color: #00007F;
+	font-size: 10pt;
+}
+.S5 {
+	color: #0000AA;
+	font-size: 10pt;
+}
+.S6 {
+	color: #7F007F;
+	font-size: 10pt;
+}
+.S10 {
+	font-weight: bold;
+	color: #000000;
+	font-size: 10pt;
+}
+span {
+	font-family: 'DejaVu Sans Mono';
+	color: #000000;
+	font-size: 9pt;
+}
+</style>
+</head>
+<body bgcolor="#FFFFFF">
+<span><span class="S1">;;; Thu 20 Feb 23:40:30 CET 2025 -- kfp@omega:~$ SBCL 2.2.9.debian</span><br />
+<br />
+<span class="S10">(</span>ql:quickload<span class="S0"> </span><span class="S5">:snark</span><span class="S10">)</span><br />
+<span class="S10">(</span>in-package<span class="S0"> </span><span class="S5">:snark-user</span><span class="S10">)</span><br />
+<span class="S10">(</span>initialize<span class="S10">)</span><br />
+<span class="S10">(</span>use-resolution<span class="S0"> </span>t<span class="S10">)</span><br />
+<span class="S1">;(use-resolution nil)</span><br />
+<span class="S1">;(use-hyperresolution t)</span><br />
+<br />
+<br />
+<span class="S1">;; we use quantifiers here (instead of ?-prefixed variables).</span><br />
+<br />
+<span class="S1">;;; Axioms</span><br />
+<span class="S10">(</span>defvar<span class="S0"> </span>ax-grp-1<span class="S0"> </span><span class="S10">'(</span>forall<span class="S0"> </span>x<span class="S0"> </span><span class="S10">(</span><span class="S3">=</span><span class="S0"> </span><span class="S10">(</span><span class="S3">*</span><span class="S0"> </span>e<span class="S0"> </span>x<span class="S10">)</span><span class="S0"> </span>x<span class="S10">)))</span><br />
+<span class="S10">(</span>defvar<span class="S0"> </span>ax-grp-2<span class="S0"> </span><span class="S10">'(</span>forall<span class="S0"> </span>x<span class="S0"> </span><span class="S10">(</span><span class="S3">=</span><span class="S0"> </span><span class="S10">(</span><span class="S3">*</span><span class="S0"> </span><span class="S10">(</span>inv<span class="S0"> </span>x<span class="S10">)</span><span class="S0"> </span>x<span class="S10">)</span><span class="S0"> </span>e<span class="S10">)))</span><br />
+<span class="S10">(</span>defvar<span class="S0"> </span>ax-grp-3<span class="S0"> </span><span class="S10">'(</span>forall<span class="S0"> </span><span class="S10">(</span>x<span class="S0"> </span>y<span class="S0"> </span>z<span class="S10">)</span><span class="S0"> </span><span class="S10">(</span><span class="S3">=</span><span class="S0"> </span><span class="S10">(</span><span class="S3">*</span><span class="S0"> </span>x<span class="S0"> </span><span class="S10">(</span><span class="S3">*</span><span class="S0"> </span>y<span class="S0"> </span>z<span class="S10">))</span><span class="S0"> </span><span class="S10">(</span><span class="S3">*</span><span class="S0"> </span><span class="S10">(</span><span class="S3">*</span><span class="S0"> </span>x<span class="S0"> </span>y<span class="S10">)</span><span class="S0"> </span>z<span class="S10">))))</span><br />
+<br />
+<span class="S10">(</span>assert<span class="S0"> </span>ax-grp-1<span class="S0"> </span><span class="S5">:name</span><span class="S0"> </span><span class="S10">'</span><span class="S5">left-identity</span><span class="S10">)</span><br />
+<span class="S10">(</span>assert<span class="S0"> </span>ax-grp-2<span class="S0"> </span><span class="S5">:name</span><span class="S0"> </span><span class="S10">'</span><span class="S5">left-inverse</span><span class="S10">)</span><br />
+<span class="S10">(</span>assert<span class="S0"> </span>ax-grp-3<span class="S0"> </span><span class="S5">:name</span><span class="S0"> </span><span class="S10">'</span><span class="S5">associative</span><span class="S10">)</span><br />
+<br />
+<span class="S1">;;; Hypotheses</span><br />
+<span class="S10">(</span>defvar<span class="S0"> </span>left-cancel<span class="S0"> </span><span class="S10">'(</span>forall<span class="S0"> </span><span class="S10">(</span>x<span class="S0"> </span>y<span class="S0"> </span>z<span class="S10">)</span><span class="S0"> </span><span class="S10">(</span>implies<span class="S0"> </span><span class="S10">(</span><span class="S3">=</span><span class="S0"> </span><span class="S10">(</span><span class="S3">*</span><span class="S0"> </span>x<span class="S0"> </span>y<span class="S10">)</span><span class="S0"> </span><span class="S10">(</span><span class="S3">*</span><span class="S0"> </span>x<span class="S0"> </span>z<span class="S10">))</span><span class="S0"> </span><span class="S10">(</span><span class="S3">=</span><span class="S0"> </span>y<span class="S0"> </span>z<span class="S10">))))</span><span class="S0"> </span><br />
+<span class="S10">(</span>defvar<span class="S0"> </span>right-id<span class="S0"> </span><span class="S10">'(</span>forall<span class="S0"> </span>x<span class="S0"> </span><span class="S10">(</span><span class="S3">=</span><span class="S0"> </span><span class="S10">(</span><span class="S3">*</span><span class="S0"> </span>x<span class="S0"> </span>e<span class="S10">)</span><span class="S0"> </span>x<span class="S10">)))</span><br />
+<span class="S10">(</span>defvar<span class="S0"> </span>right-inv-unique<span class="S0"> </span><span class="S10">'(</span>forall<span class="S0"> </span><span class="S10">(</span>x<span class="S0"> </span>y<span class="S10">)</span><span class="S0"> </span><span class="S10">(</span>implies<span class="S0"> </span><span class="S10">(</span><span class="S3">=</span><span class="S0"> </span><span class="S10">(</span><span class="S3">*</span><span class="S0"> </span>x<span class="S0"> </span>y<span class="S10">)</span><span class="S0"> </span>e<span class="S10">)</span><span class="S0"> </span><span class="S10">(</span><span class="S3">=</span><span class="S0"> </span>y<span class="S0"> </span><span class="S10">(</span>inv<span class="S0"> </span>x<span class="S10">)))))</span><br />
+<span class="S10">(</span>defvar<span class="S0"> </span>inv-involution<span class="S0"> </span><span class="S10">'(</span>forall<span class="S0"> </span>x<span class="S0"> </span><span class="S10">(</span><span class="S3">=</span><span class="S0"> </span><span class="S10">(</span>inv<span class="S0"> </span><span class="S10">(</span>inv<span class="S0"> </span>x<span class="S10">))</span><span class="S0"> </span>x<span class="S10">)))</span><br />
+<span class="S10">(</span>defvar<span class="S0"> </span>inv-prod<span class="S0"> </span><span class="S10">'(</span>forall<span class="S0"> </span><span class="S10">(</span>x<span class="S0"> </span>y<span class="S10">)</span><span class="S0"> </span><span class="S10">(</span><span class="S3">=</span><span class="S0"> </span><span class="S10">(</span>inv<span class="S0"> </span><span class="S10">(</span><span class="S3">*</span><span class="S0"> </span>x<span class="S0"> </span>y<span class="S10">))</span><span class="S0"> </span><span class="S10">(</span><span class="S3">*</span><span class="S0"> </span><span class="S10">(</span>inv<span class="S0"> </span>y<span class="S10">)</span><span class="S0"> </span><span class="S10">(</span>inv<span class="S0"> </span>x<span class="S10">)))))</span><br />
+<br />
+<br />
+<span class="S1">;;; Proves (requiring: paramodulation t)</span><br />
+<span class="S1">;;; Then no axioms for equality need be provided by the user.</span><br />
+<span class="S10">(</span>use-paramodulation<span class="S0"> </span>t<span class="S10">)</span><br />
+<span class="S10">(</span>defvar<span class="S0"> </span>p1<span class="S0"> </span><span class="S10">(</span>prove<span class="S0"> </span>left-cancel<span class="S0"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S5">:name</span><span class="S0"> </span><span class="S10">'</span><span class="S5">p-left-cancel</span><span class="S10">))</span><br />
+<span class="S10">(</span>defvar<span class="S0"> </span>p2<span class="S0"> </span><span class="S10">(</span>prove<span class="S0"> </span>right-id<span class="S0"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S5">:name</span><span class="S0"> </span><span class="S10">'</span><span class="S5">p-right-id</span><span class="S10">))</span><br />
+<span class="S10">(</span>defvar<span class="S0"> </span>p3<span class="S0"> </span><span class="S10">(</span>prove<span class="S0"> </span>right-inv-unique<span class="S0"> &nbsp;&nbsp;&nbsp;</span><span class="S5">:name</span><span class="S0"> </span><span class="S10">'</span><span class="S5">p-right-inverse-unique</span><span class="S10">))</span><br />
+<span class="S10">(</span>defvar<span class="S0"> </span>p4<span class="S0"> </span><span class="S10">(</span>prove<span class="S0"> </span>inv-involution<span class="S0"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S5">:name</span><span class="S0"> </span><span class="S10">'</span><span class="S5">p-inverse-involution</span><span class="S10">))</span><br />
+<span class="S10">(</span>defvar<span class="S0"> </span>p5<span class="S0"> </span><span class="S10">(</span>prove<span class="S0"> </span>inv-prod<span class="S0"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S5">:name</span><span class="S0"> </span><span class="S10">'</span><span class="S5">p-inverse-product</span><span class="S10">))</span><br />
+<br />
+<span class="S10">(</span>format<span class="S0"> </span>t<span class="S0"> </span><span class="S6">"~%RESULTS: ~A~%"</span><span class="S0"> </span><span class="S10">(</span><span class="S3">list</span><span class="S0"> </span>p1<span class="S0"> </span>p2<span class="S0"> </span>p3<span class="S0"> </span>p4<span class="S0"> </span>p5<span class="S10">))</span><br />
+<br />
+<span class="S1">;;;;</span><br />
+<span class="S1">;;;; https://github.com/nilqed/SNARK/blob/master/src/infix-reader.lisp</span><br />
+<span class="S1">;;;;</span><br />
+<span class="S10">(</span>snark-infix-reader::read-infix-term<span class="S0"> </span><span class="S6">"p(x,y,z)"</span><span class="S10">)</span><br />
+<span class="S1">;;; (|p| |x| |y| |z|)</span><br />
+<br />
+<span class="S10">(</span>snark-infix-reader::read-infix-term<span class="S0"> </span><span class="S6">"r(x,?,?1,X,?X,??X)"</span><span class="S10">)</span><br />
+<span class="S1">;;; (|r| |x| ? ?1 ?X ??X ???X)</span><br />
+<br />
+<span class="S10">(</span>snark-infix-reader::declare-operator-syntax<span class="S0"> </span><span class="S6">"&lt;=&gt;"</span><span class="S0"> </span><span class="S5">:xfy</span><span class="S0"> </span><span class="S2">505</span><span class="S10">)</span><br />
+<span class="S1">;#S(SNARK-INFIX-READER::OPERATOR</span><br />
+<span class="S1">; &nbsp;&nbsp;:INPUT-STRING "&lt;=&gt;"</span><br />
+<span class="S1">; &nbsp;&nbsp;:TYPE :XFY</span><br />
+<span class="S1">; &nbsp;&nbsp;:PRECEDENCE 505</span><br />
+<span class="S1">; &nbsp;&nbsp;:OUTPUT-SYMBOL &lt;=&gt;)</span><br />
+<br />
+<span class="S10">(</span>snark-infix-reader::read-infix-term<span class="S0"> </span><span class="S6">"x &lt;=&gt; y"</span><span class="S10">)</span><br />
+<span class="S1">; (&lt;=&gt; |x| |y|)</span><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<span class="S0"></span></span>
+</body>
+</html>
