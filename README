@@ -1,7 +1,7 @@
 *** Update 20-FEB-2025
 
 Replaced some SRI links (not available anymore) by adding [docs] folder locally.
-More info: https://github.com/nilqed/SNARK
+More info: http://nilqed.github.io/SNARK/
 
 (ql:quickload :snark)
 
