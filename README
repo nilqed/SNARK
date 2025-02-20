@@ -1,4 +1,5 @@
-Update 20-FEB-2025 -- replaced some SRI links (not available anymore)
+Update 20-FEB-2025 -- replaced some SRI links (not available anymore) by
+                   -- adding [/docs] folder locally.
 
 =====
 SNARK
@@ -45,7 +46,7 @@ Links & Documentation
 ---------------------
 
 SNARK tutorial ... https://nilqed.github.io/SNARK/tutorial/tutorial.html
-SNARK paper ...... https://www.sri.com/work/publications/guide-snark
+SNARK paper ...... https://nilqed.github.io/SNARK/snark.pdf
 SNARK home ....... https://www.ai.sri.com/~stickel/snark.html
 SNARK author ..... https://en.wikipedia.org/wiki/Mark_E._Stickel
 
