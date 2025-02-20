@@ -1,5 +1,10 @@
-Update 20-FEB-2025 -- replaced some SRI links (not available anymore) by
-                   -- adding [/docs] folder locally.
+*** Update 20-FEB-2025
+
+Replaced some SRI links (not available anymore) by adding [docs] folder locally.
+More info: https://github.com/nilqed/SNARK
+
+(ql:quickload :snark)
+
 
 =====
 SNARK
@@ -77,7 +82,7 @@ Running SNARK:
 Examples:
 
   (overbeek-test) in overbeek-test.lisp
-    some standard theorem-proving examples, some time-consuming
+    some standard theorem-proving examples, some time-consuming (~10m)
 
   (steamroller-example) in steamroller-example.lisp
     illustrates sorts

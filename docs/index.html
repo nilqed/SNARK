@@ -18,5 +18,38 @@ Also see: <a href="https://github.com/theoremprover-museum">
 </a></p>
 
 
+<h2> Using from FriCAS (fricas_snark) </h2>
+<p><a href="https://github.com/nilqed/fricas_snark">
+       github.com/nilqed/fricas_snark</a></p>
+
+
+<h2>Overbeek Test</h2>
+
+<p>
+Example (example/overbeek-test.lisp): (snark-user::overbeek-test)
+</p>
+
+<pre>
+Evaluation took:
+  32.517 seconds of real time
+  32.456339 seconds of total run time (24.248487 user, 8.207852 system)
+  [ Run times consist of 0.812 seconds GC time, and 31.645 seconds non-GC time. ]
+  99.81% CPU
+  23 forms interpreted
+  84,285,383,422 processor cycles
+  5,878,063,200 bytes consed
+
+
+#||
+% SZS status Unsatisfiable for /home/kfp/quicklisp/dists/quicklisp/software/snark-20160421-git/examples/LCL024-1+rm_eq_rstfp.kif
+||#
+:PROOF-FOUND
+; End refute-file /home/kfp/quicklisp/dists/quicklisp/software/snark-20160421-git/examples/LCL024-1+rm_eq_rstfp.kif 2025-02-20T20:28:50
+SNARK-USER::OVERBEEK4-1
+
+OVERBEEK-TEST Total = 660 seconds
+</pre>
+
+
 </body>
 </html> 
